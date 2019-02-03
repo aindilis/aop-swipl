@@ -16,7 +16,7 @@ should_be_wrapped(Goal) :-
 	(   P = ',' ->
 	    maplist([A]>>(error([a,A]),aop_advice(A)),R) ; 
 	    (
-	     not(my_member(P,[consult,module,use_module,use_module,set_prolog_flag,member_,debug_print_hook,assertion_failed,pred_option,locate_clauses,pred_option,pred_option,pred_option,pop_compile_operators,push_compile_operators,push_compile_operators,quasi_quotation_syntax,alternate_syntax,quasi_quotation_syntax,xref_open_source,xref_close_source,xref_source_identifier,file_search_path,prolog_file_type,goal_expansion,prolog_predicate_name,prolog_clause_name,prolog_clause_name,with_output_to])),
+	     not(my_member(P,[consult,module,use_module,set_prolog_flag,member_,debug_print_hook,assertion_failed,pred_option,locate_clauses,pred_option,pred_option,pred_option,pop_compile_operators,push_compile_operators,push_compile_operators,quasi_quotation_syntax,alternate_syntax,quasi_quotation_syntax,xref_open_source,xref_close_source,xref_source_identifier,file_search_path,prolog_file_type,goal_expansion,prolog_predicate_name,prolog_clause_name,prolog_clause_name,with_output_to])),
 	     not(my_member(P,[error,error_nl,wot,my_member,should_be_wrapped,do_aop_code_before,do_aop_code_after,goal_expansion,aop_advice])),
 	     not(my_member(P,[nl,write_term]))
 	    )).
@@ -42,7 +42,7 @@ error_nl :-
 
 aop_advice(Goal) :-
 	do_aop_code_before(Goal),
-	with_output_to_predicate([X]>>error([x,X]), (   call(Goal) *-> (Result = true; (do_aop_code_redo(Goal),fail) ) ; Result = fail )),
+	with_output_to_predicate([X]>>(error([x,X]),assert(saved_output(X))), (   call(Goal) *-> (Result = true; (do_aop_code_redo(Goal),fail) ) ; Result = fail )),
 	%% with_output_to(atom(A),(   call(Goal) *-> (Result = true; (do_aop_code_redo(Goal),fail) ) ; Result = fail )),
 	error([a,A]),
 	do_aop_code_after(Goal,Result),
