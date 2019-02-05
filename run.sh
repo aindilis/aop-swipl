@@ -1,3 +1,3 @@
 #!/bin/sh
 
-swipl -s alt17.pl
+swipl -s alt20.pl -g do

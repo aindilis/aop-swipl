@@ -4,31 +4,33 @@ my_view(X) :-
 %%---------------
 
 test :-
-	member(L,[a,b,c,d]),
+	my_member(L,[a,b,c,d]),
 	my_view(L),
 	fail.
-test.
+test :-
+	true.
 
 
 run :-
-	write('testing'),
+	my_view('testing'),
 	test.
 
 %%---------------
 
 test2 :-
-	member(L,[a,b,c,d]),
+	my_member(L,[a,b,c,d]),
 	my_view(L),
 	fail.
 test2 :-
-	member(L,[a,b,c,d]),
+	my_member(L,[a,b,c,d]),
 	my_view(L),
 	fail.
-test2.
+test2 :-
+	true.
 
 
 run2 :-
-	write('testing'),
+	my_view('testing'),
 	test2.
 
 %%---------------
