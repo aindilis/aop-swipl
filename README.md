@@ -1,3 +1,26 @@
+# introduction
+automatic test generator utilizing swipl goal expansion to wrap predicates (hence the AOP "advise" terminology) in memoizing wrappers.
+the memoized results can be saved and used as tests.
+
+# files
+#### alt*.pl, alt*.plt
+different stages of and alternative implemetations. 
+
+#### alt20.pl
+this is the one you should be looking at.
+
+#### data
+
+#### run.sn
+
+
+
+
+
+
+
+# example session
+```
 andrewdo@ai:/var/lib/myfrdcsa/codebases/minor/automated-legacy-testing/dmiles-aop$ swipl
 Welcome to SWI-Prolog (threaded, 64 bits, version 7.7.25)
 SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
@@ -114,3 +137,4 @@ a'   Exit: (8) my_view(a) ?'
 true.
 
 ?- 
+```
