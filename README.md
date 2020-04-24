@@ -1,6 +1,6 @@
 # introduction
 automatic test generator utilizing swipl goal expansion to wrap predicates (hence the AOP "advise" terminology) in memoizing wrappers.
-the memoized results can be saved and used as tests.
+the memoized results are saved automatically as .plt files and used for tests.
 
 # files
 #### alt*.pl, alt*.plt
